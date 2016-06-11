@@ -1,0 +1,32 @@
+
+     header, main, footer, .superior{
+      padding-left: 70px;
+    }
+    @media only screen and (max-width : 992px) {
+      header, main, footer, .superior {
+        padding-left: 0;
+      }
+    }
+    #slide-out2{
+      max-width: 64px ;
+    }
+    .side-nav.fixed a, .side-nav.fixed i{
+      padding: 0px 2px;
+    }
+    .collapsible-body a {
+      margin: 0;
+      padding-left: 4rem;
+      font-size: 15px;
+    }
+    .collapsible-body a:hover {
+      background:#DDDDDD;
+    }
+    .collapsible-body i {
+      width: 2rem;
+      font-size: 1.6rem;
+      line-height: inherit;
+      display: block;
+      float: left;
+      text-align: center;
+      margin-right: 1rem;
+    }

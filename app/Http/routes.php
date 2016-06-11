@@ -14,3 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get("login", function(){
+	return view("login.login");
+});
+
+Route::get("create/user", function(){
+	return view("user.create");
+});
