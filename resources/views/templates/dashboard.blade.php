@@ -20,7 +20,8 @@
   <!-- Nav superior -->
   <div class="navbar-fixed">
     <nav class="red darken-3 superior z-depth-0">
-     <a href="#!" class="brand-logo">Logo</a>
+      <a href="{{ route('inicio') }}" class="brand-logo"><img src='{{asset('images/tecateText.png')}}' height="45px" class ="center"/ style="margin-left:-7px; margin-top:7px"></a>
+
      <ul class="left">
        <li></li>
      </ul>
@@ -40,7 +41,8 @@
 
 <!-- Nav pequeña lateral -->
 <ul id="slide-out2" class="side-nav fixed">
-  <li><a href="#" data-activates="slide-out3" class="button-collapse show-on-large hide-on-med-and-down"><i class="fa fa-bars fa-2x"></i></a>
+  <li ><a href="{{ route('inicio') }}"><img src='{{asset('images/tecate.png')}}' width="45px" class ="center"/ style="margin-left:-7px; margin-top:7px"></a></li>
+  <li><a href="#" data-activates="slide-out3" class="button-collapse show-on-large hide-on-med-and-down"><i class="fa fa-bars fa-2x"></a></i>
   </li>
   <li> <i class="fa fa-search fa-2x"></i></li>
 </ul>
@@ -51,7 +53,7 @@
 <ul id="slide-out3" class="side-nav">
   <ul class="collapsible" data-collapsible="accordion">
     <li>
-      <a class="collapsible-header black-text" href="#"><i class="fa fa-home" aria-hidden="true"></i>Inicio</a>
+      <a class="collapsible-header black-text" href="{{ route('inicio') }}" ><i class="fa fa-home" aria-hidden="true"></i>Inicio</a>
     </li>
     <li>
       <div class="collapsible-header"><i class="fa fa-users" aria-hidden="true"></i>Usuarios<i class="right fa fa-chevron-right" aria-hidden="true"></i>
