@@ -57,7 +57,8 @@
       <div class="collapsible-header"><i class="fa fa-users" aria-hidden="true"></i>Usuarios<i class="right fa fa-chevron-right" aria-hidden="true"></i>
       </div>
       <div class="collapsible-body">
-        <a class="collapsibe-header black-text" href="#"><i class="fa fa-user-plus" aria-hidden="true"></i>Agregar</a>
+        <a class="collapsibe-header black-text" href="{{ route('user.index') }}"><i class="fa fa-eye" aria-hidden="true"></i>Ver todos</a>
+        <a class="collapsibe-header black-text" href="{{ route('user.create') }}"><i class="fa fa-user-plus" aria-hidden="true"></i>Agregar</a>
       </div>
     </li>
     <li>
@@ -92,6 +93,13 @@
 <div class="contenido">
   <div class="row">
     <div class="col m10 offset-m1">
+
+      @if (Session::has('flash_notification.message'))
+        <script >
+          Materialize.toast('{{ Session::get('flash_notification.message') }}', 10000);
+        </script>
+      @endif
+
       @yield('content')
     </div>
   </div>

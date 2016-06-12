@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Laracasts\Flash\Flash;
 use Illuminate\Http\Request;
-
+use App\Http\Requests\UserRequest;
 use App\Http\Requests;
+use App\User;
 
 class UserController extends Controller
 {
@@ -15,7 +16,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::orderBy('created_at', 'DEC')->get();
+        return view('user.index')->with('users', $users);
     }
 
     /**
@@ -34,9 +36,25 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
-        dd($request);
+        $user = new User($request->all());
+
+        $name = $request->first_name . " " .$request->last_name;
+        $user->name= $name;
+        $user->password = bcrypt($request->password);
+
+        if($request->admin){
+            $user->type="admin";
+        }
+        else{
+            $user->type="default";
+        }
+
+        $user->save();
+
+        Flash::success("¡Se ha registrado el usuario de manera exitosa!");
+        return redirect()->route('user.index');
     }
 
     /**
@@ -47,7 +65,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
