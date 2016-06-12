@@ -16,6 +16,7 @@
 
 		body {
 			margin-top: 10%;
+			background: #f5f5f5;
 		}
 
 

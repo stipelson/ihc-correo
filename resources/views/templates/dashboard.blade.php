@@ -14,12 +14,12 @@
 
    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-</head>
-<body>
+ </head>
+ <body>
 
-<!-- Nav superior -->
+  <!-- Nav superior -->
   <div class="navbar-fixed">
-    <nav class="red darken-3 superior">
+    <nav class="red darken-3 superior z-depth-0">
      <a href="#!" class="brand-logo">Logo</a>
      <ul class="left">
        <li></li>
@@ -57,7 +57,7 @@
       <div class="collapsible-header"><i class="fa fa-users" aria-hidden="true"></i>Usuarios<i class="right fa fa-chevron-right" aria-hidden="true"></i>
       </div>
       <div class="collapsible-body">
-      <a class="collapsibe-header black-text" href="#"><i class="fa fa-user-plus" aria-hidden="true"></i>Agregar</a>
+        <a class="collapsibe-header black-text" href="#"><i class="fa fa-user-plus" aria-hidden="true"></i>Agregar</a>
       </div>
     </li>
     <li>
@@ -72,13 +72,28 @@
 </ul>
 
 <!-- Fin Nav desplegable lateral -->
+<!-- Titulo y miga de pan -->
 
+<div class="col s12 no-padding">
+  <div class="section white z-depth-0 titulo">
+    <div class="row no-padding no-margin">
+      <div class="col m6">
+        <span class="titulo">@yield('titulo')</span>
+      </div>
+      <div class="col m6" style="padding:5px 2rem 0 0;">
+        <span class="bread right">@yield('miga')</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Fin Titulo y miga de pan -->
 <!-- Contenido -->
-
-<div class="row">
-  <div class="col m10 offset-m1">
-    @yield('content')
-    asd
+<div class="contenido">
+  <div class="row">
+    <div class="col m10 offset-m1">
+      @yield('content')
+    </div>
   </div>
 </div>
 <!-- Fin Contenido -->

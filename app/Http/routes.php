@@ -19,6 +19,4 @@ Route::get("login", function(){
 	return view("login.login");
 });
 
-Route::get("create/user", function(){
-	return view("user.create");
-});
+Route::resource('user', 'UserController');
