@@ -1,45 +1,38 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Laravel</title>
+@extends('templates.dashboard')
 
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+@section('titulo')
+ Inicio
+@endsection
 
-        <style>
-            html, body {
-                height: 100%;
-            }
+@section('miga')
 
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                display: table;
-                font-weight: 100;
-                font-family: 'Lato';
-            }
+<div class="nav-wrapper right blue-text">
+    <div class="col s12 blue-text">
+        <a href="#!" class="breadcrumb blue-text text-darken-2">First</a>
+        <a href="#!" class="breadcrumb blue-text text-darken-2">Second</a>
+        <a href="#!" class="breadcrumb blue-text text-darken-2">Third</a>
+    </div>
+</div>
 
-            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
+@endsection
 
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
 
-            .title {
-                font-size: 96px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="content">
-                <div class="title">Laravel 5.2</div>
-            </div>
-        </div>
-    </body>
-</html>
+@section('content')
+
+@if(count($errors) > 0)
+    <script>
+    @foreach($errors->all() as $error)
+
+    Materialize.toast('{{ $error }}', 10000);
+
+    @endforeach
+    </script>
+@endif
+
+<div class="section white z-depth-1" style="padding:25px 25px 0px 25px;">
+    <div class="row">
+
+    </div>
+</div>
+
+@endsection

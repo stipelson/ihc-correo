@@ -1,7 +1,7 @@
 @extends('templates.dashboard')
 
 @section('titulo')
-<i class="fa fa-users" aria-hidden="true"></i> Usuarios
+ Usuarios
 @endsection
 
 @section('miga')
@@ -21,15 +21,14 @@
 <div class="section white z-depth-1" style="padding:25px 25px 25px 25px;">
 	<div class="row">
 
-		<table class="bordered striped highlight responsive-table">
+		<table class="bordered highlight responsive-table">
 			<thead>
 				<tr>
 					<th>Nombre</th>
 					<th>Correo</th>
 					<th>Tipo</th>
 					<th>Fecha de registro</th>
-					<th class="text-center">Ver</th>
-					<th class="text-center">Borrar</th>
+					<th class="center-align">Opciones</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -39,21 +38,20 @@
 					<td>{{ $user->email }}</td>
 					<td>{{ $user->type }}</td>
 					<td>{{ $user->created_at }}</td>
-					<td class="text-center"><a href="{{ route('user.show', $user->id) }}" class="btn btn-primary btn-xs">
-						<i class="fa fa-eye"></i></a>
-					</td>
-					<td class="text-center"><a href="{{ route('user.destroy', $user->id) }}"
-						onclick="return confirm('¿Esta seguro de querer eliminar el registro?')" class="btn btn-danger btn-xs">
-						<i class="fa fa-trash"></i></a>
+					<td class="center-align">
+						<a class="btn-floating red" href="{{ route('user.show', $user->id) }}"><i class="fa fa-eye"></i></a>
 					</td>
 				</tr>
 				@endforeach
 			</tbody>
-			</table>
+		</table>
 
 
 	</div>
 </div>
 
+<div class="fixed-action-btn" style="bottom: 24px; right: 24px;">
+	<a class="btn-floating btn-large waves-effect waves-light red" href="{{ route('user.create') }}"><i class="material-icons">add</i></a>
+</div>
 
 @endsection

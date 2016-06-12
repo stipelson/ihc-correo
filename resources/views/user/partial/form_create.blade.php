@@ -26,7 +26,7 @@
 		</div>
 		<div class="row">
 			<div class="input-field col s12">
-				<input type="checkbox" id="admin" name="admin" value="1"/>
+				{!! Form::checkbox('admin', '1', null ,['id'=>'admin']) !!}
 				{!! Form::label('admin', 'Administrador') !!}
 			</div>
 		</div><br>
@@ -38,7 +38,7 @@
 					<a href="{{ route('user.index') }}" class="btn btn-large waves-effect waves-light white red-text text-darken-2">Cancelar
 						<i class="fa fa-times right" aria-hidden="true"></i>
 					</a>
-					<button class="btn btn-large waves-effect waves-light" type="submit" name="submit">Guardar
+					<button class="btn btn-large waves-effect waves-light green" type="submit" name="submit">Guardar
 						<i class="material-icons right">send</i>
 					</button>
 				</p>

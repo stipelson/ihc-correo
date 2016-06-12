@@ -1,7 +1,7 @@
 @extends('templates.dashboard')
 
 @section('titulo')
- Crear Usuario
+ Editar Usuario {{ $user->name }}
 @endsection
 
 @section('miga')
@@ -31,7 +31,7 @@
 
 <div class="section white z-depth-1" style="padding:25px 25px 0px 25px;">
 	<div class="row">
-		{!! Form::open(['route'=>'user.store', 'method'=>'POST', 'files' => true, 'class' => 'col s12']) !!}
+		{!! Form::model($user, ['route'=>array('user.update', $user->id), 'method'=>'PUT', 'class' => 'col s12']) !!}
 
 			@include('user.partial.form_create')
 

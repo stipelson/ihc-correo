@@ -22,7 +22,7 @@ Route::get("login", function(){
 //users
 
 Route::resource('user', 'UserController', ['only' => [
-	'create', 'store'
+	'create', 'store', 'destroy', 'update'
 	]]);
 
 Route::get('user', [
@@ -35,18 +35,6 @@ Route::get('user/{user}', [
 	'middleware' => 'auth',
 	'as' => 'user.show',
 	'uses' => 'UserController@show'
-	]);
-
-Route::put('user/{user}', [
-	'middleware' => 'auth',
-	'as' => 'user.update',
-	'uses' => 'UserController@update'
-	]);
-
-Route::delete('user/{user}', [
-	'middleware' => 'auth',
-	'as' => 'user.destroy',
-	'uses' => 'UserController@destroy'
 	]);
 
 Route::get('user/{user}/edit', [

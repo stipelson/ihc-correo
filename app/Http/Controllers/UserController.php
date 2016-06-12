@@ -65,7 +65,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-
+        $user = User::find($id);
+        return view('user.show')->with('user', $user);
     }
 
     /**
@@ -76,7 +77,20 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user= User::find($id);
+
+        if ($user->type == "admin") {
+            $user->admin = "1";
+        } else {
+            $user->admin = "0";
+        }
+
+        $splitName = explode(" ",$user->name);
+
+        $user->first_name = $splitName[0];
+        $user->last_name = $splitName[1];
+
+        return view('user.edit')->with('user',$user);
     }
 
     /**
@@ -99,6 +113,13 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        if ($user->delete()) {
+            Flash::info("¡El usuario " . $user->name . " fue eliminado de manera exitosa!");
+        } else {
+            Flash::info("¡El usuario " . $user->name . " no fue eliminado!");
+        }
+
+        return redirect()->route('user.index');
     }
 }
