@@ -1,7 +1,7 @@
 @extends('templates.dashboard')
 
 @section('titulo')
- Usuarios
+Usuarios
 @endsection
 
 @section('miga')
