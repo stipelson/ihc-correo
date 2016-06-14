@@ -28,16 +28,26 @@
      <!-- Oculta en s -->
 
      <ul class="right hide-on-med-and-down">
-      <li><a href="<?php echo $_SERVER["REQUEST_URI"]; ?>"><i class="material-icons" style="height:64px;">refresh</i></a></li>
+
+      <li><a href="<?php echo $_SERVER["REQUEST_URI"]; ?>"><i class="material-icons" style="height:64px; padding-top:5px;">refresh</i></a></li>
       @if (Auth::guest())
       <li><a href="{{ route('login') }}"> Entrar <i class="material-icons right">play_arrow</i></a></li>
       @else
+      <li>
+        <a href="{{ route('inicio') }}"><i class="material-icons left" style="height:64px; padding-top:5px;">mail</i>
+          @if(Auth::user()->correos()->where('leida', '=', false)->count() > 0)
+          <span class="new badge">
+            {!! Auth::user()->correos()->where('leida', '=', false)->count() !!}
+          </span>
+          @endif
+        </a>
+      </li>
       <ul id="dropdownSesion" class="dropdown-content">
        <li><a class="black-text" href="{{ route('user.show', Auth::user()->id) }}"><i class="fa fa-fw fa-user"></i> Perfil</a></li>
        <li class="divider"></li>
        <li><a class="black-text" href="{{ route('logout') }}"><i class="fa fa-sign-out left" aria-hidden="true"></i> Salir</a></li>
      </ul>
-     <li><a class="dropdown-button" href="#!" data-activates="dropdownSesion"><i class="material-icons" style="height:64px;">more_vert</i></a></li>
+     <li><a class="dropdown-button" href="#!" data-activates="dropdownSesion"><i class="material-icons" style="height:64px; padding-top:5px;">more_vert</i></a></li>
      @endif
 
    </ul>
@@ -56,21 +66,16 @@
         </div>
       </li>
       <li>
-        <div class="collapsible-header black-text"><i class="material-icons">place</i>Second</div>
-        <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+        <a class="collapsible-header black-text" href="{{ route('correo.index') }}"><i class="large material-icons">email</i>Correspondencia</i></a>
       </li>
-      <li>
-        <div class="collapsible-header black-text"><i class="material-icons">whatshot</i>Third</div>
-        <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-      </li>
+
 
       <div class="divider"></div>
 
       @if (Auth::guest())
       <li>
-
         <a class="collapsible-header black-text" href="{{ route('login') }}">
-           <i class="material-icons ">play_arrow</i> Entrar
+         <i class="material-icons ">play_arrow</i> Entrar
        </a>
      </li>
      @else
@@ -121,12 +126,7 @@
       </div>
     </li>
     <li>
-      <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
-      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-    </li>
-    <li>
-      <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
-      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+      <a class="collapsible-header black-text" href="{{ route('correo.index') }}"><i class="large material-icons">email</i>Correspondencia</i></a>
     </li>
   </ul>
 </ul>

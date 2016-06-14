@@ -25,4 +25,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function correos()
+    {
+        return $this->hasMany('App\Correo')->orderBy('created_at', 'DEC');
+    }
 }

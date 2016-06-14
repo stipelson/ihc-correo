@@ -8,9 +8,9 @@
 
 <div class="nav-wrapper right blue-text">
 	<div class="col s12 blue-text">
-		<a href="#!" class="breadcrumb blue-text text-darken-2">First</a>
-		<a href="#!" class="breadcrumb blue-text text-darken-2">Second</a>
-		<a href="#!" class="breadcrumb blue-text text-darken-2">Third</a>
+		<a href="{{ route('correo.index') }}" class="breadcrumb blue-text text-darken-2">Correspondencia</a>
+		<a href="{{ route('user.index') }}" class="breadcrumb blue-text text-darken-2">Usuarios</a>
+		<a href="{{ route('user.create') }}" class="breadcrumb blue-text text-darken-2">Crear usuario</a>
 	</div>
 </div>
 

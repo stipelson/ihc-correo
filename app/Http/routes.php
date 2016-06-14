@@ -11,13 +11,27 @@
 |
 */
 
-Route::get('/', ['middleware' => 'auth', function () {
-	return view('welcome');
-}])->name('inicio');
+Route::get('/', 'CorreoController@index')->name('inicio');
 
 Route::get("login", function(){
 	return view("login.login");
 });
+
+//correspondencia
+
+Route::resource('correo', 'CorreoController');
+
+Route::get('correo/{correo}/leido',[
+	'middleware' => 'auth',
+	'as'=> 'correo.cambiarestado',
+	'uses'=>'CorreoController@cambiarEstado'
+	]);
+
+Route::get('correo/{correo}/todasLeidas',[
+	'middleware' => 'auth',
+	'as'=> 'correo.todasleidas',
+	'uses'=>'CorreoController@todasLeidas'
+	]);
 
 //users
 

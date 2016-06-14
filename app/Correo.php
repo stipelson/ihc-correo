@@ -6,14 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Correo extends Model
 {
-    protected $table = 'emails';
+	protected $table = 'emails';
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'identificador', 'destinatario', 'registrada_por', 'leida'
+    'identificador', 'destinatario', 'registrada_por', 'leida', 'comment'
     ];
 
     /**
@@ -22,4 +22,8 @@ class Correo extends Model
      * @var array
      */
 
-}
+    public function user()
+    {
+    	return $this->belongsTo('App\User');
+    }
+   }
